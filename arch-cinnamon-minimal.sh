@@ -94,6 +94,9 @@ arch-chroot /mnt /bin/bash -c "sudo -u $username rm -rf /home/$username/yay-bin"
 # Install AUR packages as user
 arch-chroot /mnt /bin/bash -c "sudo -u $username yay -S albert oh-my-zsh-git zsh-theme-powerlevel10k-git --noconfirm"
 
+# Remove build files for AUR packages
+arch-chroot /mnt /bin/bash -c "sudo -u $username rm -rf /home/$username/.cache/yay/*"
+
 # Unmount and Reboot
 umount -R /mnt
 echo "Installation complete! Rebooting..."
